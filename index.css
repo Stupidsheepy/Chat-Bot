@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    --body-bg-color: #313338;
+    --input-bg-color: #383a40;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--body-bg-color);
+}
+
+.main-container {
+    width: 100%;
+    height: 100vh;
+}
+
+header::before {
+    content: "🐑";
+
+}
+
+header {
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+div.message-bubble.user {
+    background-color: dodgerblue;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+div.message-bubble.assistant {
+    background-color: pink;
+    color: black;
+}
+
+.message-bubble {
+    /* TODO changed by js roles user or assistant */
+
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 40%;
+    font-size: 1rem;
+    color: white;
+}
+
+.message-area {
+    /* border: 1px solid dodgerblue; */
+    /* background-color:
+        dodgerblue; */
+    margin: 0 2rem;
+
+    /* margin-top: 4rem; */
+    width: calc(100% - 4rem);
+    height: calc(80% - 3rem);
+    overflow-y: auto;
+}
+
+
+.chat-area:focus {
+    outline: none;
+}
+
+.chat-area {
+    /* 填满剩余空间 */
+    background-color: var(--input-bg-color);
+    font-size: 1.5rem;
+    height: 8%;
+    width: calc(100% - 4rem);
+    margin: 2rem;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    resize: none;
+    word-break: break-word;
+    /* hide the scroll but I could still scroll */
+    overflow: hidden;
+    /* line-height用于块内的居中 */
+    line-height: 1.5;
+}
+
+@media screen and (min-height:1000px) {
+    .chat-area {
+        height: 4%;
+    }
+}
