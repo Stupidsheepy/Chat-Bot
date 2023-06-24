@@ -38,11 +38,25 @@ let addNewMessage = (message, role) => {
 
 // create message bubble
 let createMessageBubble = (message, role) => {
+    let roleBox = document.createElement('div');
+    roleBox.classList.add('role');
     let messageBubble = document.createElement('div');
     messageBubble.classList.add('message-bubble');
     messageBubble.classList.add(role);
     messageBubble.textContent = message;
-    messsage_area.appendChild(messageBubble);
+    if (role === 'user') {
+        roleBox.appendChild(messageBubble);
+        let userIcon = document.createElement('div');
+        userIcon.classList.add('user-avatar-ball');
+        roleBox.appendChild(userIcon);
+    } else {
+
+        let userIcon = document.createElement('div');
+        userIcon.classList.add('bot-avatar-ball');
+        roleBox.appendChild(userIcon);
+        roleBox.appendChild(messageBubble);
+    }
+    messsage_area.appendChild(roleBox);
 }
 
 
