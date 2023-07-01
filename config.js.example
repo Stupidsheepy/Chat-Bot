@@ -1,5 +1,5 @@
 export default {
-    apiKey: 'your api-key here',
-     url: 'https://api.openai.com', 
+    apiKey: 'Bearer (your api-key here)',
+     url: 'https://api.openai.com or your other baseUrl', 
      ...
 };

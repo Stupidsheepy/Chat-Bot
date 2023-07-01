@@ -4,6 +4,20 @@
     --input-bg-color: #383a40;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #313338;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: grey;
+}
+
 html,
 body {
     margin: 0;
@@ -40,8 +54,10 @@ header {
 
 .user-avatar-ball,
 .bot-avatar-ball {
-    width: 80px;
-    height: 80px;
+    align-self: flex-end;
+    position: relative;
+    width: 50px;
+    height: 50px;
     border: 1px solid white;
     border-radius: 100%;
     background: url("images/luoguEmoji.png") center center / cover no-repeat dodgerblue;
@@ -75,6 +91,26 @@ div.assistant {
     position: relative;
 }
 
+.user-avatar-ball .timeBlock,
+.bot-avatar-ball .timeBlock {
+    /* content: var(--current-time); */
+    /* content: "nihao"; */
+    position: absolute;
+    bottom: -50%;
+    text-align: right;
+    right: 0;
+    width: 10rem;
+    height: auto;
+    color: gray;
+}
+
+.bot-avatar-ball .timeBlock {
+    text-align: left;
+    left: 0;
+}
+
+
+
 .message-bubble::after,
 .message-bubble::after {
     content: "";
@@ -84,12 +120,13 @@ div.assistant {
     width: 1rem;
     height: 1rem;
     background-color: dodgerblue;
-    transform: translateY(-50%) rotate(45deg);
+    transform: translateY(0%) translateX(-20%) rotate(60deg);
 }
 
 .message-bubble.assistant::after {
     left: -0.5rem;
     background-color: pink;
+    transform: translateY(0%) translateX(20%) rotate(-60deg);
 }
 
 .message-area {
@@ -97,7 +134,9 @@ div.assistant {
     /* background-color:
         dodgerblue; */
     margin: 0 2rem;
-
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     /* margin-top: 4rem; */
     width: calc(100% - 4rem);
     height: calc(80% - 3rem);
@@ -127,8 +166,17 @@ div.assistant {
     /* line-height用于块内的居中 */
 }
 
-@media screen and (min-height:1000px) {
+
+/* @media screen and (min-height:1000px) {
     .chat-area {
         height: 4%;
+    }
+}
+ */
+
+/* like mobile phone, message bubble width should wider */
+@media screen and (max-width:600px) {
+    .message-bubble {
+        max-width: 80%;
     }
 }
